@@ -36,7 +36,7 @@ export class AppComponent implements OnInit{
       userPh: new FormControl('', [Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern("^[0-9]{10}$")]),
       userEmail: new FormControl('',[Validators.required,Validators.minLength(7),Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       userPass: new FormControl('',[Validators.required,Validators.minLength(8)]),
-      confirmPass:new FormControl('',[Validators.required,Validators.minLength(8)]),
+      confirmPass:new FormControl('',[Validators.required,Validators.minLength(8)]), //ignore for now
       file: new FormControl(''),
       fileSource: new FormControl('')
   
