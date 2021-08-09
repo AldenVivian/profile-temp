@@ -53,6 +53,7 @@
 
         <label for="pass">New Password:</label>
         <input type="password" [type]="show ? 'text' : 'password'" id="pass" formControlName="userPass" class="form-control">
+        <div class ="alert alert-danger"*ngIf="validatingForm.get('userPass').hasError('minlength')">Must be at least 8 characters</div>
         <button class ="btn btn-warning"(click)="password()">{{show ? 'Hide' : 'Show'}}</button>
         <p></p>
         
