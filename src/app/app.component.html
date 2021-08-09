@@ -1,21 +1,21 @@
 
 <div class="container p-5 border">
 
-  <div class="container border border-dark p-5">
+    <div class="container border border-dark p-5">
 
-  <img src="https://www.computerhope.com/jargon/g/guest-user.jpg" *ngIf="check == false" style="height: 100px; width:100px" class="p-2">
-  <img [src]="imageSrc" *ngIf="check == true" style="height: 100px; width:100px" class ="p-2">
-        
+      <img src="https://www.computerhope.com/jargon/g/guest-user.jpg" *ngIf="check == false" style="height: 100px; width:100px" class="p-2"> <!-- Default image-->
+      <img [src]="imageSrc" *ngIf="check == true" style="height: 100px; width:100px" class ="p-2">
+            
 
-  <p>Name: </p>
-  <p>Phone number: </p>  <!--Display data from database-->
-  <p>Email Id: </p>
-  <p>Password: </p>
-  
+      <p>Name: </p>
+      <p>Phone number: </p>  <!--Display data from database-->
+      <p>Email Id: </p>
+      <p>Password: </p>
+      
 
-  <button class="btn btn-success" (click)="triggerModal(modalData)">Edit Details</button>
+      <button class="btn btn-success" (click)="triggerModal(modalData)">Edit Details</button>
 
-</div>
+    </div>
 
 </div>
 
