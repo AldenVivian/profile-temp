@@ -1,0 +1,88 @@
+
+<div class="container p-5 border">
+
+  <div class="container border border-dark p-5">
+
+  <img src="https://www.computerhope.com/jargon/g/guest-user.jpg" *ngIf="check == false" style="height: 100px; width:100px" class="p-2">
+  <img [src]="imageSrc" *ngIf="check == true" style="height: 100px; width:100px" class ="p-2">
+        
+
+  <p>Name: </p>
+  <p>Phone number: </p>  <!--Display data from database-->
+  <p>Email Id: </p>
+  <p>Password: </p>
+  
+
+  <button class="btn btn-danger" (click)="triggerModal(modalData)">Edit Details</button>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit user Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <form [formGroup] = "validatingForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="userName" class="form-control">
+        <!--<div class="alert alert-danger" style="width: 50%;" *ngIf="!validatingForm.valid && validatingForm.touched">Required Field</div>-->
+        <div class ="alert alert-danger"*ngIf="validatingForm.get('userName').hasError('minlength')">Must be at least 5 characters</div>
+        <div class ="alert alert-danger"*ngIf="validatingForm.get('userName').hasError('pattern')">Only Alphabets allowed</div>
+
+        <label for="phnum">Phone Number:</label>
+        <input type="text" id="phnum" formControlName="userPh" class="form-control">
+        <div class ="alert alert-danger"*ngIf="validatingForm.get('userPh').hasError('minlength')">Must be at least 10 characters</div>
+        <div class ="alert alert-danger"*ngIf="validatingForm.get('userPh').hasError('maxlength')">Invalid Phone number</div>
+        <div class ="alert alert-danger"*ngIf="validatingForm.get('userPh').hasError('pattern')">Only Numeric values allowed</div>
+
+        <label for="email">Email Id:</label>
+        <input type="email" id="email" formControlName="userEmail" class="form-control">
+        <div class ="alert alert-danger"*ngIf="validatingForm.get('userEmail').hasError('minlength')">Must be at least 7 characters</div>
+        <div class ="alert alert-danger"*ngIf="validatingForm.get('userEmail').hasError('pattern')">Invalid Email Address</div>
+
+        <label for="pass">New Password:</label>
+        <input type="text" id="pass" formControlName="userPass" class="form-control">
+        
+        <label for="pass2">Confirm Password:</label>
+        <input type="text" id="pass2" formControlName="confirmPass" class="form-control" hidden>
+
+        <div class ="alert alert-danger"*ngIf="passcheck">Do not match</div>
+
+        <label for="file">Profile Picture</label>
+        <input  formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)">
+
+
+      </form>
+  </div>
+  <div class="modal-footer">
+    
+
+    <button type="button" class="btn btn-info" (click)="save()">Update</button>
+
+    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>
+
+
+<p>---------------------------------------------</p>
+
+<app-test></app-test>
