@@ -68,6 +68,15 @@ export class AppComponent implements OnInit{
     }
 
   }
+
+  show: boolean = false;
+
+ 
+  
+  // click event function toggle
+  password() {
+      this.show = !this.show;
+  }
   
 
 

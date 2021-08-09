@@ -25,14 +25,6 @@
 
 
 
-
-
-
-
-
-
-
-
 <ng-template #modalData let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Edit user Details</h4>
@@ -60,9 +52,11 @@
         <div class ="alert alert-danger"*ngIf="validatingForm.get('userEmail').hasError('pattern')">Invalid Email Address</div>
 
         <label for="pass">New Password:</label>
-        <input type="text" id="pass" formControlName="userPass" class="form-control">
+        <input type="password" [type]="show ? 'text' : 'password'" id="pass" formControlName="userPass" class="form-control">
+        <button class ="btn btn-warning"(click)="password()">{{show ? 'Hide' : 'Show'}}</button>
+        <p></p>
         
-        <label for="pass2">Confirm Password:</label>
+        <label for="pass2" hidden>Confirm Password:</label>
         <input type="text" id="pass2" formControlName="confirmPass" class="form-control" hidden>
 
         <div class ="alert alert-danger"*ngIf="passcheck">Do not match</div>
